@@ -19,3 +19,10 @@ class SignUp(forms.Form):
 class LoginForm(forms.Form):
     email= forms.CharField(widget=forms.EmailInput(attrs={'placeholder':'Email'}))
     password= forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password','type':'password'}))
+
+
+class Borrow(forms.Form):
+    book_id=forms.CharField(widget=forms.TextInput(attrs={'placeholder':'bookId'}))
+    date=forms.CharField(widget=forms.TextInput (attrs={'placeholder':'date'}))
+
+

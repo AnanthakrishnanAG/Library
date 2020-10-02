@@ -13,6 +13,9 @@ urlpatterns=[
     
     path('login/view/',include(router.urls)),
     path('',views.signupview),
-    path('login/',views.login)
+    path('login/',views.login),
+    path('login/borrow/',views.borrow),
+    path('login/logout/',views.logout),
+
   
 ]

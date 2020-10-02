@@ -5,8 +5,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
-from . forms import SignUp,LoginForm
+from . forms import SignUp,LoginForm,Borrow
 
 #view for the emp-list
 
@@ -82,3 +81,28 @@ def login(request):
     else:
         form=LoginForm()
         return render(request,'login.html',context={'form':form})
+
+def borrow(request):
+    if request.method=='POST':
+        form=Borrow(request.POST or None)
+        if form.is_valid():
+            bookid=form.cleaned_data['book_id']
+            date=form.cleaned_data['date']
+            book=Library.objects.get(id=bookid)
+            if book:
+                c=book.count
+                c-=1
+                Library.objects.filter(id=bookid).update(count=c)
+
+                return HttpResponseRedirect(request.path_info)
+            else:
+                return HttpResponse("<script>alert('No book avaliable in this id...!');window.location ='';</script>")
+
+    else:
+        form=Borrow()
+        return render(request,'borrow.html',{'form':form})
+
+
+def logout(request):
+    del request.session['email']
+    redirect('')
