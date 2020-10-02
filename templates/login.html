@@ -1,0 +1,19 @@
+{% if messages %}
+<div class="span12">
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message|safe }}
+    </div>
+{% endfor %}
+</div>
+{% endif %}
+
+<div class="log-form">
+    <h2>Login to your account</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+      <button type="submit" class="btn">Login</button>
+      <a class="forgot" href="#">Forgot Username?</a>
+    </form>
+  </div><!--end log form -->

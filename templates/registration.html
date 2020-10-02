@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<h1 class="h4 text-gray-900">
+    <strong class ="headreg">Employee Registration </strong>
+   </h1>
+<form action="" method="post">
+    {% csrf_token %}
+   <div class="form">
+   <div class="row">
+    <div class="col-lg-6">
+    <div class="p-5">
+    <div class="text-center">
+<div class="form-group">
+
+<label for="ID">ID</label>
+<!-- <input type="text" name="id" id="id" placeholder="ID"> -->
+{{form.id}}
+</div>
+
+<div class="form-group">
+<label for="name">Name</label>
+{{form.real_name}}
+<!-- <input type="text" name="name" id="name" placeholder="Name"> -->
+</div>
+
+<div class="form-group">
+<label for="Place">Place</label>
+{{form.tz}}
+<!-- <input type="text" name="place" id="place" placeholder="Place"> -->
+</div>
+
+
+<div class="form-group">
+    <label for="Place">Place</label>
+    {{form.start_time}}
+    <!-- <input type="text" name="place" id="place" placeholder="Place"> -->
+    </div>
+
+
+    <div class="form-group">
+        <label for="Place">Place</label>
+        {{form.end_time}}
+        <!-- <input type="text" name="place" id="place" placeholder="Place"> -->
+        </div>
+
+
+
+
+<button style="left:551px; bottom:306px" type="submit" name="btn_login" id="register" class="btn btn-primary btn-user btn-block">Add Employee</button>
+</div>
+</div>
+</div>
+</form>
+<br>
+<br>
+<h1 style="left:40px" class="h4 text-gray-900">
+    <strong class ="headperiod">Add Activity Period </strong>
+   </h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+   
+    
+<div class="form-group">
+    <label for="start time">Start time</label>
+    {{form1.start_time}}
+    <!-- <input type="date" name="start time" id="starttime"> -->
+</div>
+    <div class="form-group">
+    <label for="end time">End time</label>
+    {{form1.end_time}}  
+    </div>
+
+    <button style="left:556px; bottom:-26px" type="submit" name="btn_login" id="register" class="btn btn-primary btn-user btn-block">Add Activity period</button>
+
+</form>
+</div>
+</form>
+{% endblock %}

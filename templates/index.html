@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+
+    <h1 class="h4 text-gray-900">
+        <strong class ="head">Welcome </strong>
+       </h1>
+ 
+    <div class="container">
+      
+           
+         
+         
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a href="view">View</a>
+                    </h3>
+                    <p>This is where you can view your employees details.</p>
+                </div>
+            </div>
+        </div>
+       
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a href="emp-registration/">Manage</a>
+                    </h3>
+                    <p>This is where you can manage your employees.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

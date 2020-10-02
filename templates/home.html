@@ -1,0 +1,55 @@
+{% load static %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet" id="bootstrap-css">
+
+
+
+
+
+<h1 class="h4 text-gray-900">
+        <strong class ="head">Welcome {{email}} </strong>
+       </h1>
+       <div class='logout'>
+        <a  href="logout/">logout</ahref>
+        </div>
+ 
+    <div class="container">
+      
+           
+         
+         
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a href="view">View</a>
+                    </h3>
+                    <p>This is where you can add books to library and see registered users.</p>
+                </div>
+            </div>
+        </div>
+       
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a href="emp-registration/">Borrow Books</a>
+                    </h3>
+                    <p>This is where you manage borrowed books.</p>
+                </div>
+            </div>
+        </div>
+    </div>
