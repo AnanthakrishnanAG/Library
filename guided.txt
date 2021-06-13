@@ -1,0 +1,15 @@
+import numpy as np 
+img= cv2.imread("C:\\Users\\Divya C P\\Downloads\\lungfieldproject\\archive\\images\\images\\JPCLN005.png")
+
+cv2.imwrite('read.jpg',img)
+print("image read")
+norm_img=np.zeros((256,256))
+final_img=cv2.normalize(img,norm_img,0,255,cv2.NORM_MINMAX)
+cv2.imshow('imagewindow',final_img)
+cv2.imwrite('csenorm.jpg',final_img)
+print(final_img)
+#from cv2.ximgproc import guidedFilter
+#out=cv2.guidedFilter(final_img ,10,800)
+#cv2.imshow("out",out)
+cv2.waitKey(5000)
+cv2.destroyAllWindows()

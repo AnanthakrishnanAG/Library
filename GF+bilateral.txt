@@ -1,0 +1,26 @@
+import cv2
+import numpy as np 
+#import skimage
+#import matplotlib.pyplot as plt
+img= cv2.imread("C:\\Users\\Divya C P\\Downloads\\lungfieldproject\\archive\\images\\images\\JPCLN005.png")
+
+cv2.imwrite('read.jpg',img)
+print("image read")
+norm_img=np.zeros((256,256))
+final_img=cv2.normalize(img,norm_img,0,255,cv2.NORM_MINMAX)
+cv2.imshow('imagewindow',final_img)
+cv2.imwrite('csenorm.jpg',final_img)
+print(final_img)
+# dst = cv2.ximgproc.guidedFilter(guide=guided_image, src=image_one,radius=7,eps=1000,dDepth=-1)
+#guide=cv2.imread(final_img)
+#dst1=cv2.ximgproc.guidedFilter(guide=guide, src=final_img,radius=7,eps=10,dDepth=-1)
+#print(dst1.shape)
+#if __name__=='main':
+ #   cv2.imshow("guidewinnn",final_img)
+ #   cv2.imshow("dst1",dst1)
+
+bilateralFilter=cv2.bilateralFilter(final_img,9,75,75)
+cv2.imshow('filterwindow',bilateralFilter)
+cv2.imwrite('filter.jpg',bilateralFilter)
+cv2.waitKey(5000)
+cv2.destroyAllWindows()
