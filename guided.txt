@@ -1,15 +1,21 @@
-import numpy as np 
-img= cv2.imread("C:\\Users\\Divya C P\\Downloads\\lungfieldproject\\archive\\images\\images\\JPCLN005.png")
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
 
-cv2.imwrite('read.jpg',img)
-print("image read")
+
+
+img = cv2.imread('test.jpg', 0)
+img=cv2.resize(img,(300,400))
+# gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 norm_img=np.zeros((256,256))
 final_img=cv2.normalize(img,norm_img,0,255,cv2.NORM_MINMAX)
-cv2.imshow('imagewindow',final_img)
-cv2.imwrite('csenorm.jpg',final_img)
-print(final_img)
-#from cv2.ximgproc import guidedFilter
-#out=cv2.guidedFilter(final_img ,10,800)
-#cv2.imshow("out",out)
-cv2.waitKey(5000)
+blur = cv2.GaussianBlur(final_img,(15,15),0)
+ret,binr = cv2.threshold(blur,135,255,cv2.THRESH_BINARY)
+kernel = np.ones((3,3),np.uint8)
+erosion = cv2.erode(binr,kernel,iterations = 1)
+canny = cv2.Canny(blur, 20, 40)
+result = cv2.bitwise_and(canny,canny,mask = erosion)
+
+cv2.imshow("gf",result)
+cv2.waitKey()  
 cv2.destroyAllWindows()
