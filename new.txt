@@ -1,0 +1,23 @@
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+
+img = cv2.imread('test.jpg', 0)
+img=cv2.resize(img,(300,400))
+img_single=img/255
+# gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+norm_img=np.zeros((256,256))
+final_img=cv2.normalize(img,norm_img,0,255,cv2.NORM_MINMAX)
+out = cv2.ximgproc.guidedFilter(final_img,final_img,8,800)
+out=out/255
+det=img_single-out
+det=det-np.mean(det)
+det=det/np.std(det)
+cv2.imshow("ero",out)
+
+cv2.imshow("ero",det)
+
+cv2.waitKey()  
+cv2.destroyAllWindows()
